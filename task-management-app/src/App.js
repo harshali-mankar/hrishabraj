@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
@@ -5,22 +6,31 @@ import Container from "react-bootstrap/Container";
 // import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+
+import ModalBox from "./ModalBox";
 
 function App() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <Container fluid="md">
-      <h1 class="text-success text-center">GeeksforGeeks</h1>
-
-      <div className="d-flex ml-auto top-management-app">
+      <div className="p-5 task-management-app">
         {/* <Row>
           <Col>1 of 1</Col>
           <Col>1 of 1</Col>
         </Row> */}
-        <Row>
-          <Col className="top-management-app__head">
+        <fieldset className="border rounded-3 p-3">
+          <legend className="float-none w-auto px-3">
+            <h1 class="text-primary text-center">Task Management App</h1>
+          </legend>
+          <div className="d-flex pb-lg-5 justify-content-between top-management-app__head">
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Dropdown Button
+              <Dropdown.Toggle className="bg-primary" id="dropdown-basic">
+                Filter
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
@@ -29,10 +39,31 @@ function App() {
                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Button variant="primary">Primary</Button>{" "}
-          </Col>
-        </Row>
-        <div className="top-management-app__body"></div>
+
+            <ModalBox />
+          </div>
+          <div className="task-management__body">
+            <div className="task-management__listWrp">
+              <div className="task-management__list d-flex task-management__list--Head fw-bold">
+                <div className="task-management__title">Title</div>
+                <div className="task-management__desc">Description</div>
+                <div className="task-management__actionBtns"> - </div>
+              </div>
+              <div className="task-management__list d-flex">
+                <div className="task-management__title">My Task</div>
+                <div className="task-management__desc">
+                  My task 1 line Description
+                </div>
+                <div className="task-management__actionBtns ms-auto fs-4">
+                  {/* https://fontawesome.com/icons/trash?f=classic&s=solid */}
+                  <FontAwesomeIcon icon={faEdit} className="p-1" />
+
+                  <FontAwesomeIcon icon={faTrash} className="p-1 text-danger" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
       </div>
     </Container>
   );
