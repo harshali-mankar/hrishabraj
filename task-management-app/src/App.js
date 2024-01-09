@@ -18,7 +18,7 @@ function App() {
   const handleShow = () => setShow(true);
   return (
     <Container fluid="md">
-      <div className="p-5 task-management-app">
+      <div className="pt-4 task-management-app">
         {/* <Row>
           <Col>1 of 1</Col>
           <Col>1 of 1</Col>
@@ -27,7 +27,7 @@ function App() {
           <legend className="float-none w-auto px-3">
             <h1 class="text-primary text-center">Task Management App</h1>
           </legend>
-          <div className="d-flex pb-lg-5 justify-content-between top-management-app__head">
+          <div className="d-flex pb-5 justify-content-between top-management-app__head">
             <Dropdown>
               <Dropdown.Toggle className="bg-primary" id="dropdown-basic">
                 Filter
