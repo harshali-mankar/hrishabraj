@@ -8,9 +8,12 @@
 }
 .task-management__list {
   padding: 5px;
-  margin-bottom: 20px;
+  min-height: 60px;
   border-bottom: 1px solid var(--bs-border-color);
   align-items: center;
+}
+.task-management__list:first-child {
+  padding-left: 15px;
 }
 
 .task-management__list:last-child {
