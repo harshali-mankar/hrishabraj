@@ -1,11 +1,18 @@
-.task-management__title {
-  width: 25%;
+.task-management__title,
+.task-management__desc,
+.task-management__status {
+  flex: 1;
+}
+.task-management__actionBtns {
+  flex-basis: 200px;
 }
 .task-management__list {
-  padding-bottom: 20px;
+  padding: 5px;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--bs-border-color);
+  align-items: center;
 }
+
 .task-management__list:last-child {
   border: 0;
 }
