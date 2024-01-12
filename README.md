@@ -8,7 +8,7 @@ Using Bootstrap along with React
 Added custom CSS.
 
 Application URL
-
+https://github.com/harshali-mankar/hrishabraj.git
 
 Cloning and Running the Application in local
 Clone the project into local
