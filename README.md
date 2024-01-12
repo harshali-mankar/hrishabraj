@@ -2,10 +2,10 @@ Simple React JS Task Management APP
 
 This App is a Simple ReactJS Project which demonstrates the following
 
-Creating a Component in React
-Storing and accessing data from local storage
-Using Bootstrap along with React
-Added custom CSS.
+1. Creating a Component in React
+2. Storing and accessing data from local storage
+3. Using Bootstrap along with React
+4. Added custom CSS.
 
 Application URL
 https://github.com/harshali-mankar/hrishabraj.git
