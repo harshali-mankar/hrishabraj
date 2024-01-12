@@ -1,5 +1,5 @@
 fieldset {
-  height: calc(100dvh - 3.5rem);
+  height: calc(100dvh - 3 0.5rem);
 }
 .task-management__title,
 .task-management__desc,

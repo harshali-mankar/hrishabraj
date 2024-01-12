@@ -2,7 +2,6 @@ import "./App.css";
 
 import Container from "react-bootstrap/Container";
 import Dropdown from "react-bootstrap/Dropdown";
-
 import Task from "./components/Task";
 
 function App() {

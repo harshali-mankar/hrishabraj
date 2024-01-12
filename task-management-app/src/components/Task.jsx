@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
 // font awesome icon
@@ -45,6 +45,10 @@ const Task = () => {
       // Add new task
       setTasks([...tasks, { title, description, status: "Pending" }]);
     }
+    localStorage.setItem(
+      "tasks",
+      JSON.stringify([...tasks, { title, description, status: "Pending" }])
+    );
 
     closeModal();
   };
@@ -52,6 +56,7 @@ const Task = () => {
   const deleteTask = (task) => {
     const updatedTasks = tasks.filter((t) => t !== task);
     setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
   const changeStatus = (newStatus) => {
@@ -69,22 +74,16 @@ const Task = () => {
       return tasks.filter((task) => task.status === filterValue);
     }
   };
+  useEffect(() => {
+    // Load tasks from local storage when component mounts
+    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(storedTasks);
+  }, []); // Empty dependency array ensures this effect runs only once on mount
 
   return (
     <div className="">
       <div className="d-flex pb-5 justify-content-between top-management-app__head">
-        {/* <select
-          value={filterValue}
-          onChange={(e) => changeFilter(e.target.value)}
-        >
-          <option value="All">All</option>
-          <option value="Pending">Pending</option>
-          <option value="Completed">Completed</option>
-        </select> */}
-
         <Select
-          // value={filterValue}
-          // value={filterValue}
           defaultValue={filterValue}
           onChange={(e) => {
             changeFilter(e.value);
