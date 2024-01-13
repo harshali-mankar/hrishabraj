@@ -5,7 +5,9 @@ This App is a Simple ReactJS Project which demonstrates the following
 1. Creating a Component in React
 2. Storing and accessing data from local storage
 3. Using Bootstrap along with React
-4. Added custom CSS.
+4. BEM class naming convention
+5. Used bootstrap modal popup
+6. Added custom CSS.
 
 Application URL
 https://github.com/harshali-mankar/hrishabraj.git
