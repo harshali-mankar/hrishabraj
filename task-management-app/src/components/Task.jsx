@@ -81,7 +81,7 @@ const Task = () => {
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
   return (
-    <div className="">
+    <>
       <div className="d-flex pb-5 justify-content-between top-management-app__head">
         <Select
           defaultValue={filterValue}
@@ -94,6 +94,41 @@ const Task = () => {
           Add New Task
         </button>
       </div>
+      <h3 className="mb-4">Task List</h3>
+      <div className="task-management__body">
+        <div className="task-management__listWrp">
+          <div className="task-management__list d-flex task-management__list--Head fw-bold bg-body-tertiary">
+            <div className="task-management__title">Title</div>
+            <div className="task-management__desc">Description</div>
+            <div className="task-management__status">Status</div>
+            <div className="task-management__actionBtns"> Action </div>
+          </div>
+          {filterTasks().map((task, index) => (
+            <div className="task-management__list d-flex" key={index}>
+              <div className="task-management__title">{task.title}</div>
+              <div className="task-management__desc">{task.description}</div>
+              <div className="task-management__status">{task.status}</div>
+              <div className="task-management__actionBtns ms-auto fs-4 ">
+                <button
+                  className="d-inline-flex btn btn-primary me-2"
+                  onClick={() => openModal(task)}
+                >
+                  <FontAwesomeIcon icon={faEdit} className="p-1" />
+                  Edit
+                </button>
+                <button
+                  className="d-inline-flex btn btn-primary btn-danger"
+                  onClick={() => deleteTask(task)}
+                >
+                  <FontAwesomeIcon icon={faTrash} className="p-1" />
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Bootstrap Modal Code Markup*/}
       {modalOpen && (
         <div
           className="modal fade show"
@@ -177,41 +212,7 @@ const Task = () => {
           </div>
         </div>
       )}
-      <h3 className="mb-4">Task List</h3>
-      <div className="task-management__body">
-        <div className="task-management__listWrp">
-          <div className="task-management__list d-flex task-management__list--Head fw-bold bg-body-tertiary">
-            <div className="task-management__title">Title</div>
-            <div className="task-management__desc">Description</div>
-            <div className="task-management__status">Status</div>
-            <div className="task-management__actionBtns"> Action </div>
-          </div>
-          {filterTasks().map((task, index) => (
-            <div className="task-management__list d-flex" key={index}>
-              <div className="task-management__title">{task.title}</div>
-              <div className="task-management__desc">{task.description}</div>
-              <div className="task-management__status">{task.status}</div>
-              <div className="task-management__actionBtns ms-auto fs-4 ">
-                <button
-                  className="d-inline-flex btn btn-primary me-2"
-                  onClick={() => openModal(task)}
-                >
-                  <FontAwesomeIcon icon={faEdit} className="p-1" />
-                  Edit
-                </button>
-                <button
-                  className="d-inline-flex btn btn-primary btn-danger"
-                  onClick={() => deleteTask(task)}
-                >
-                  <FontAwesomeIcon icon={faTrash} className="p-1" />
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 
