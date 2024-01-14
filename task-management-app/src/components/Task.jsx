@@ -41,14 +41,13 @@ const Task = () => {
           : task
       );
       setTasks(updatedTasks);
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // Update local storage
     } else {
       // Add new task
-      setTasks([...tasks, { title, description, status: "Pending" }]);
+      const newTask = { title, description, status: "Pending" };
+      setTasks([...tasks, newTask]);
+      localStorage.setItem("tasks", JSON.stringify([...tasks, newTask])); // Update local storage
     }
-    localStorage.setItem(
-      "tasks",
-      JSON.stringify([...tasks, { title, description, status: "Pending" }])
-    );
 
     closeModal();
   };
